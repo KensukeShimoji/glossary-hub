@@ -1,1 +1,7 @@
-<div>top page!</div>
+<div class="card-list">
+  <gh-glossary-card
+    class="card"
+    *ngFor="let glossary of glossaries"
+    [glossary]="glossary"
+  ></gh-glossary-card>
+</div>

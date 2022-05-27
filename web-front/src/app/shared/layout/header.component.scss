@@ -1,7 +1,7 @@
 .navbar {
   background-color: gray;
   height: 48px;
-  line-height: 48px;
+  line-height: 32px;
 }
 
 .container {
@@ -12,6 +12,7 @@
 }
 
 .title {
+  padding: 8px;
   font-size: 20px;
   font-weight: bold;
 }
