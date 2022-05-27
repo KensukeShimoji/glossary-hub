@@ -1,37 +1,167 @@
-## Welcome to GitHub Pages
+# Glossary Hub 
 
-You can use the [editor on GitHub](https://github.com/KensukeShimoji/glossary-hub/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+## 概要
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+用語集（Glossary）を作成するWebアプリケーション
 
-### Markdown
+## 機能
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Glossary Hub が提供する機能の一覧
 
-```markdown
-Syntax highlighted code block
+### 用語集管理
 
-# Header 1
-## Header 2
-### Header 3
+* 用語集を管理する機能
 
-- Bulleted
-- List
+#### 用語集一覧取得
 
-1. Numbered
-2. List
+* ユーザーが閲覧可能な用語集の一覧を取得する機能
+* 以下の並び順でのソートを提供する
+  * コンテンツの更新頻度の高い順（Most Trended）
+  * 表示された回数の多い順（Most View）
+  * お気に入り登録の多い順（Most Favorite）
 
-**Bold** and _Italic_ and `Code` text
+#### 用語集登録
 
-[Link](url) and ![Image](src)
-```
+* 新たに用語集を登録する機能
+* 用語集登録時に必要な情報としては以下の通り
+  * タイトル
+    * 用語集のタイトル
+    * 必須項目
+    * 1文字以上、50文字以下
+  * 説明
+    * 用語集の説明
+    * 任意項目
+    * 1文字以上、200文字以下
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+#### 用語集編集
 
-### Jekyll Themes
+* 作成済みの用語集の内容を編集する機能
+* 編集可能な情報としては以下の通り
+  * タイトル
+    * 用語集のタイトル
+    * 必須項目
+    * 1文字以上、50文字以下
+  * 説明
+    * 用語集の説明
+    * 任意項目
+    * 1文字以上、200文字以下
+  * アイコン
+    * 用語集に表示するアイコン
+    * 最大ファイルサイズは2MB
+    * 推奨サイズは400x400ピクセル
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/KensukeShimoji/glossary-hub/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+#### 用語集削除
 
-### Support or Contact
+* 作成済みの用語集を削除する機能
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### 用語管理
+
+* 用語集内の用語を管理する機能
+* 用語は1用語集につき最大1,000語登録可能
+
+#### 用語一覧取得
+
+* 用語集に登録されている用語の一覧を取得する機能
+* 以下の並び順でのソートを提供する
+  * あいうえお順（昇順・降順）
+  * 重要度順（昇順・降順）
+
+#### 用語登録
+
+* 用語集に新しい用語を登録する機能
+* 用語登録に必要な情報としては以下の通り
+  * 用語
+    * 用語
+    * 必須項目
+    * 1文字以上50文字以内
+  * 用語（読み）
+    * 用語の読み方
+    * 任意項目
+    * 1文字以上50文字以内
+  * 説明
+    * 用語の説明
+    * 任意項目
+    * 1文字以上200文字以内
+
+#### 用語編集
+
+* 用語集に登録済みの用語を編集する機能
+* 編集可能な情報としては以下の通り
+  * 用語
+    * 用語
+    * 必須項目
+    * 1文字以上50文字以内
+  * 用語（読み）
+    * 用語の読み方
+    * 任意項目
+    * 1文字以上50文字以内
+  * 説明
+    * 用語の説明
+    * 任意項目
+    * 1文字以上200文字以内
+
+#### 用語削除
+
+* 作成済みの用語を用語集から削除する機能
+
+## 用語
+
+### 利用者
+
+* 利用者は登録済みの利用者（ユーザー）と未登録の利用者（ゲスト）の２種類が存在する。
+* ユーザーは各用語集において以下のロールが与えられる
+  * 所有者（Owner）
+    * 用語集
+      * 編集
+      * 削除
+    * 用語
+      * 追加
+      * 編集
+      * 削除
+  * 編集者（Editor）
+    * 用語
+      * 追加
+      * 編集
+      * 削除
+  * 閲覧者（Viewer）
+
+### 用語集
+### 用語
+
+## ドメインモデル
+
+- 利用者(user)
+  - ID(id)
+  - 利用者名
+
+- 用語集(glossary)
+  - ID(id)
+  - タイトル(title)
+
+- 用語集所有者(glossary-owner)
+  - 用語集ID(glossary.id)
+  - 利用者ID(user.id)
+
+- 用語集編集者(glossary-editor)
+  - 用語集ID(glossary.id)
+  - 利用者ID(user.id)
+
+- 用語(word)
+  - ID(id)
+  - 名称(name)
+  - 説明(description)
+
+- 引用元(reference)
+  - 用語ID(word.id)
+  - 種別(reference-type)
+    1. web
+    1. publication
+    1. paper
+    1. others
+  - リンク(uri)
+  - 詳細(detail)
+
+- 関連語
+  - 用語ID(word.id)
+  - 関連用語ID(word.id)
+
