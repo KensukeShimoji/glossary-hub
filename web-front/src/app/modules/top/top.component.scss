@@ -1,6 +1,12 @@
+.add-button-container {
+  padding: 12px;
+  text-align: right;
+}
+
 .card-list {
   padding: 8px 8px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
+  overflow-y: auto;
 }
