@@ -1,4 +1,6 @@
 .title-area {
+  margin: 12px 0px;
+  border-radius: 8px;
   background-color: lightgray;
   height: 180px;
   text-align: center;
@@ -14,7 +16,7 @@
   .tab-header {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 36px;
     border-bottom: 1px solid gray;
     padding: 12px;
     .tab-button {
