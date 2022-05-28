@@ -9,7 +9,7 @@ const routes: Routes = [
     component: CreateGlossaryComponent,
   },
   {
-    path: '',
+    path: ':id',
     component: GlossaryComponent,
   },
 ];

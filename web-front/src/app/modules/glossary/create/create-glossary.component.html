@@ -1,3 +1,26 @@
-<div>
-  this is create glossary component.
-</div>
+<h2>用語集登録</h2>
+<form [formGroup]="createGlossaryForm">
+  <div class="form-field">
+    <label for="title">タイトル</label>
+    <input
+      id="title"
+      type="text"
+      placeholder="用語集のタイトルを入力して下さい"
+      formControlName="title"
+    />
+  </div>
+
+  <div class="form-field">
+    <label for="description">説明</label>
+    <textarea
+      id="description"
+      placeholder="用語集の説明を入力して下さい"
+      formControlName="description"
+    ></textarea>
+  </div>
+
+  <div class="button-area">
+    <button type="button" (click)="cancel()">キャンセル</button>
+    <button type="button" (click)="create()">登録する</button>
+  </div>
+</form>
