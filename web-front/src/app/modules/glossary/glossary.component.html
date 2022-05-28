@@ -1,1 +1,29 @@
-<div>this is glossary component!</div>
+<div class="title-area">
+  <div class="title">{{ title }}</div>
+</div>
+<div class="contents-area">
+  <div class="tab-header">
+    <div
+      class="tab-button"
+      [class.active]="isSummaryTabSelected()"
+      (click)="turnedSummaryTab()"
+    >
+      概要
+    </div>
+    <div
+      class="tab-button"
+      [class.active]="isTermListTabSelected()"
+      (click)="turnedTermListTab()"
+    >
+      用語一覧
+    </div>
+  </div>
+  <div class="tab-contents">
+    <div class="tab-content" [class.active]="isSummaryTabSelected()">
+      <div class="description">{{ description }}</div>
+    </div>
+    <div class="tab-content" [class.active]="isTermListTabSelected()">
+      まだ用語が登録されていません
+    </div>
+  </div>
+</div>

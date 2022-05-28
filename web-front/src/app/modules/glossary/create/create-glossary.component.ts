@@ -28,7 +28,7 @@ export class CreateGlossaryComponent {
       title: this.createGlossaryForm.controls['title'].value,
       description: this.createGlossaryForm.controls['description'].value,
     };
-    this.glossaryService.createGlossary(input).subscribe((id: string) => {
+    this.glossaryService.create(input).subscribe((id: string) => {
       this.router.navigateByUrl(`glossary/${id}`);
     });
   }
