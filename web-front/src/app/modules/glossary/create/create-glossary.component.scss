@@ -1,7 +1,6 @@
 form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 
 .form-field {
@@ -16,6 +15,18 @@ form {
   }
   textarea {
     height: 320px;
+  }
+}
+
+.visibility {
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  .label {
+    display: flex;
+    gap: 12px;
+    align-items: center;
   }
 }
 

@@ -1,26 +1,64 @@
 <h2>用語集登録</h2>
 <form [formGroup]="createGlossaryForm">
-  <div class="form-field">
-    <label for="title">タイトル</label>
+  <mat-form-field appearance="outline">
+    <mat-label>タイトル</mat-label>
     <input
+      matInput
       id="title"
       type="text"
       placeholder="用語集のタイトルを入力して下さい"
       formControlName="title"
+      required
     />
-  </div>
+    <mat-error *ngIf="createGlossaryForm.controls['title'].invalid"
+      >タイトルは必ず入力して下さい</mat-error
+    >
+  </mat-form-field>
 
-  <div class="form-field">
-    <label for="description">説明</label>
-    <textarea
+  <mat-form-field appearance="outline">
+    <mat-label>説明（任意）</mat-label>
+    <input
+      matInput
       id="description"
+      type="text"
       placeholder="用語集の説明を入力して下さい"
       formControlName="description"
-    ></textarea>
-  </div>
+    />
+  </mat-form-field>
+
+  <mat-divider></mat-divider>
+
+  <mat-radio-group
+    class="visibility"
+    color="primary"
+    formControlName="visibility"
+  >
+    <mat-radio-button value="public">
+      <div class="label">
+        <mat-icon>lock</mat-icon>
+        <div class="description">
+          <div>公開</div>
+          <small>誰でも閲覧可能な用語集として作成します。</small>
+        </div>
+      </div>
+    </mat-radio-button>
+    <mat-radio-button value="private">
+      <div class="label">
+        <mat-icon>lock_open</mat-icon>
+        <div class="description">
+          <div>非公開</div>
+          <small>限定されたユーザーにのみ閲覧可能な用語集として作成します。</small>
+        </div>
+      </div>
+    </mat-radio-button>
+  </mat-radio-group>
 
   <div class="button-area">
-    <button type="button" (click)="cancel()">キャンセル</button>
-    <button type="button" (click)="create()">登録する</button>
+    <button mat-raised-button type="button" (click)="cancel()">
+      キャンセル
+    </button>
+    <button mat-raised-button color="primary" type="button" (click)="create()">
+      登録する
+    </button>
   </div>
 </form>

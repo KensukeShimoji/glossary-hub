@@ -20,10 +20,15 @@ export class CreateGlossaryComponent {
     this.createGlossaryForm = fb.group({
       title: ['', Validators.required],
       description: [''],
+      visibility: ['public', Validators.required] 
     });
   }
 
   create() {
+    this.createGlossaryForm.markAllAsTouched();
+    if (this.createGlossaryForm.invalid) {
+      return;
+    }
     const input: CreateGlossaryInput = {
       title: this.createGlossaryForm.controls['title'].value,
       description: this.createGlossaryForm.controls['description'].value,
