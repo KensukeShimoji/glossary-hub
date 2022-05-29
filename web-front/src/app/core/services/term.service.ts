@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 export interface AddTermInput {
   name: string;
   yomi: string;
+  abbreviation: string;
   description: string;
 }
 

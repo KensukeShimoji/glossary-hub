@@ -27,6 +27,36 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
+    <mat-label>略語</mat-label>
+    <input
+      matInput
+      id="abbreviation"
+      type="text"
+      placeholder="略語を入力して下さい"
+      formControlName="abbreviation"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>タグ</mat-label>
+    <mat-chip-list #chipList>
+      <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)">
+        {{ tag.name }}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="新しいタグ"
+        [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="addTag($event)"
+      />
+    </mat-chip-list>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
     <mat-label>説明</mat-label>
     <textarea
       matInput

@@ -8,7 +8,10 @@
       <mat-icon class="tab-icon">description</mat-icon>
       用語一覧
     </ng-template>
-    <div class="no-term-message">まだ用語が1件も登録されていません</div>
+    <div class="no-term-message">
+      まだ用語が登録されていません。<br><br>
+      <a mat-raised-button color="primary" routerLink="./term/create">新しい用語を登録する</a>
+    </div>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label=>
