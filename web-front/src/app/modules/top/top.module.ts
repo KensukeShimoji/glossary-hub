@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { GlossaryCardComponent } from './glossary/glossary-card.component';
+import { MaterialModule } from '../shared/material.module';
+import { GlossaryCardComponent } from './card/glossary-card.component';
 import { TopRoutingModule } from './top-routing.module';
 import { TopComponent } from './top.component';
 
 @NgModule({
-  imports: [CommonModule, TopRoutingModule],
+  imports: [CommonModule, MaterialModule, TopRoutingModule],
   declarations: [TopComponent, GlossaryCardComponent],
 })
 export class TopModule {}

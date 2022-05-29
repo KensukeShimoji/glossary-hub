@@ -1,10 +1,20 @@
-<h3 class="title">{{ title }}</h3>
+<div class="content-header">
+  <h3 class="title">{{ title }}</h3>
+  <small class="description">{{ description }}</small>
+</div>
 <mat-tab-group>
-  <mat-tab label="情報">
-    <div class="description">{{ description }}</div>
-  </mat-tab>
-  <mat-tab label="用語一覧">
+  <mat-tab>
+    <ng-template mat-tab-label=>
+      <mat-icon class="tab-icon">description</mat-icon>
+      用語一覧
+    </ng-template>
     <div class="no-term-message">まだ用語が1件も登録されていません</div>
   </mat-tab>
-  <mat-tab label="設定"> 設定 </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label=>
+      <mat-icon class="tab-icon">settings</mat-icon>
+      設定
+    </ng-template>
+    設定
+  </mat-tab>
 </mat-tab-group>

@@ -1,0 +1,16 @@
+.footer {
+  padding: 0px 12px;
+  padding-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  line-height: 26px;
+  .author,
+  .bookmark {
+    display: flex;
+    gap: 8px;
+  }
+  .bookmark {
+    color: coral;
+  }
+}

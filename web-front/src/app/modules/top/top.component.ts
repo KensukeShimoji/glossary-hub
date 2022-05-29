@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import { Component } from '@angular/core';
-import { Glossary } from './glossary/glossary-card.component';
+import { Glossary } from './card/glossary-card.component';
 
 @Component({
   templateUrl: 'top.component.html',
@@ -14,12 +14,11 @@ export class TopComponent {
       .fill('')
       .forEach((item, index, _) =>
         this.glossaries.push({
-          imageUrl: '',
           title: `用語集その${index}`,
           description: `用語集その${index}の説明 用語集その${index}の説明 用語集その${index}の説明 用語集その${index}の説明 用語集その${index}の説明 用語集その${index}の説明`,
-          authorImageUrl: '',
           authorName: '山田 太郎',
           lastUpdatedAt: DateTime.now(),
+          bookMarkCount: Math.floor(Math.random() * 1000),
         })
       );
   }

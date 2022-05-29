@@ -2,12 +2,11 @@ import { DateTime } from 'luxon';
 import { Component, Input } from '@angular/core';
 
 export interface Glossary {
-  imageUrl: string;
   title: string;
   description: string;
-  authorImageUrl: string;
   authorName: string;
   lastUpdatedAt: DateTime;
+  bookMarkCount: number;
 }
 
 @Component({
@@ -29,6 +28,10 @@ export class GlossaryCardComponent {
 
   get authorName(): string {
     return this.glossary.authorName;
+  }
+
+  get bookmarkCount(): number {
+    return this.glossary.bookMarkCount;
   }
 
   get lastUpdatedAt(): string {

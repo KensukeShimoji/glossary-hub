@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-title class="title">{{ title }} </mat-card-title>
+  <mat-card-content>
+    <div class="description">{{ description }}</div>
+  </mat-card-content>
+  <mat-card-footer class="footer">
+    <div class="author">
+      <mat-icon>account_circle</mat-icon>
+      <div class="authorName">{{ authorName }}</div>
+    </div>
+    <div class="bookmark">
+      <mat-icon>bookmark</mat-icon>
+      <div class="count">{{ bookmarkCount | number }}</div>
+    </div>
+  </mat-card-footer>
+</mat-card>
