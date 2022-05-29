@@ -1,0 +1,49 @@
+<h3>用語登録</h3>
+<form [formGroup]="addTermForm">
+  <mat-form-field appearance="outline">
+    <mat-label>用語名</mat-label>
+    <input
+      matInput
+      id="name"
+      type="text"
+      placeholder="用語名を入力して下さい"
+      formControlName="name"
+      required
+    />
+    <mat-error *ngIf="addTermForm.controls['name'].invalid"
+      >用語名は必ず入力して下さい</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>読み方</mat-label>
+    <input
+      matInput
+      id="yomi"
+      type="text"
+      placeholder="読み方を入力して下さい"
+      formControlName="yomi"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>説明</mat-label>
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="10"
+      cdkAutosizeMaxRows="20"
+      formControlName="description"
+    ></textarea>
+  </mat-form-field>
+
+  <div class="button-area">
+    <button mat-raised-button type="button" (click)="cancel()">
+      キャンセル
+    </button>
+    <button mat-raised-button color="primary" type="button" (click)="add()">
+      登録する
+    </button>
+  </div>
+</form>

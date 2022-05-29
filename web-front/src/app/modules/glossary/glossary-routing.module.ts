@@ -9,6 +9,10 @@ const routes: Routes = [
     component: CreateGlossaryComponent,
   },
   {
+    path: ':id/term',
+    loadChildren: () => import('../term/term.module').then((m) => m.TermModule),
+  },
+  {
     path: ':id',
     component: GlossaryComponent,
   },
