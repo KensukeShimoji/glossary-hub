@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'glossary',
     loadChildren: () => import('./modules/glossary/glossary.module').then((m) => m.GlossaryModule),
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./modules/profile/profile.module').then((m) => m.ProfileModule),
+  },
 ];
 
 @NgModule({
