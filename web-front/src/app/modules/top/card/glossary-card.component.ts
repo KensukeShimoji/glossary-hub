@@ -1,9 +1,11 @@
 import { DateTime } from 'luxon';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface Glossary {
   title: string;
   description: string;
+  author: string;
   authorName: string;
   lastUpdatedAt: DateTime;
   bookMarkCount: number;
@@ -17,6 +19,8 @@ export interface Glossary {
 export class GlossaryCardComponent {
   @Input()
   glossary!: Glossary;
+
+  constructor(private readonly router: Router) {}
 
   get title(): string {
     return this.glossary.title;
@@ -35,6 +39,14 @@ export class GlossaryCardComponent {
   }
 
   get lastUpdatedAt(): string {
-    return this.glossary.lastUpdatedAt.toFormat('yyyy/MM/dd H:mm')
+    return this.glossary.lastUpdatedAt.toFormat('yyyy/MM/dd H:mm');
+  }
+
+  goToGlossaryPage() {
+    this.router.navigateByUrl(`/glossary/glossary-id-123`);
+  }
+
+  goToAuthorProfile() {
+    this.router.navigateByUrl(`/profile/${this.glossary.author}`);
   }
 }

@@ -1,10 +1,12 @@
 <mat-card>
-  <mat-card-title class="title">{{ title }} </mat-card-title>
-  <mat-card-content>
+  <mat-card-title class="title" (click)="goToGlossaryPage()">
+    {{ title }}
+  </mat-card-title>
+  <mat-card-content (click)="goToGlossaryPage()">
     <div class="description">{{ description }}</div>
   </mat-card-content>
   <mat-card-footer class="footer">
-    <div class="author">
+    <div class="author" (click)="goToAuthorProfile()">
       <mat-icon>account_circle</mat-icon>
       <div class="authorName">{{ authorName }}</div>
     </div>
