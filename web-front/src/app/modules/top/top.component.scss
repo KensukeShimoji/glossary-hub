@@ -1,5 +1,4 @@
 .add-button-container {
-  padding: 12px;
   text-align: right;
 }
 
@@ -10,4 +9,10 @@
   gap: 8px;
   overflow-y: auto;
   background-color: lightgray;
+}
+
+@media (max-width: 480px) {
+.card-list {
+  grid-template-columns: 1fr;
+}
 }
