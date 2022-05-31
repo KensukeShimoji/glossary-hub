@@ -1,6 +1,7 @@
+import { TermList, TermService } from '#services/term.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map } from 'rxjs';
+import { concatMap, map, zip } from 'rxjs';
 import { Glossary } from 'src/app/core/models/glossary.model';
 import { GlossaryService } from 'src/app/core/services/glossary.service';
 
@@ -16,24 +17,6 @@ enum TabList {
 export class GlossaryComponent implements OnInit {
   private _glossary?: Glossary;
 
-  private _selectedTab: TabList = TabList.TERM_LIST;
-
-  turnedSummaryTab() {
-    this._selectedTab = TabList.SUMMARY;
-  }
-
-  isSummaryTabSelected() {
-    return this._selectedTab === TabList.SUMMARY;
-  }
-
-  turnedTermListTab() {
-    this._selectedTab = TabList.TERM_LIST;
-  }
-
-  isTermListTabSelected() {
-    return this._selectedTab === TabList.TERM_LIST;
-  }
-
   get title(): string | undefined {
     return this._glossary?.title;
   }
@@ -42,19 +25,27 @@ export class GlossaryComponent implements OnInit {
     return this._glossary?.description;
   }
 
-  constructor(private readonly activatedRoute: ActivatedRoute, private readonly glossaryService: GlossaryService) {}
+  private _termList: TermList = [];
+
+  get termList() {
+    return this._termList;
+  }
+
+  constructor(
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly glossaryService: GlossaryService,
+    private readonly termService: TermService
+  ) {}
 
   ngOnInit(): void {
     this.activatedRoute.paramMap
       .pipe(
-        map((params: ParamMap) => {
-          const id = params.get('glossary-id');
-          if (id === null) return;
-          this.glossaryService.get(id).subscribe((glossary: Glossary) => {
-            this._glossary = glossary;
-          });
+        map((params: ParamMap) => params.get('glossary-id')),
+        concatMap((glossaryId) => {
+          if (glossaryId === null) throw new Error();
+          return zip(this.glossaryService.get(glossaryId), this.termService.list(glossaryId));
         })
       )
-      .subscribe();
+      .subscribe((response) => ([this._glossary, this._termList] = response));
   }
 }

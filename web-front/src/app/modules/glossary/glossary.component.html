@@ -1,14 +1,20 @@
 <div class="content-header">
   <div class="title-area">
     <h3 class="title">{{ title }}</h3>
-    <a class="settings-button" mat-raised-button routerLink="./settings">設定</a>
+    <a class="settings-button" mat-raised-button routerLink="./settings"
+      >設定</a
+    >
   </div>
   <small class="description">{{ description }}</small>
 </div>
 
-<div class="no-term-message">
+<gh-term-list
+  *ngIf="termList.length > 0; else noTermMessage"
+  [list]="termList"
+></gh-term-list>
+<ng-template #noTermMessage class="no-term-message">
   まだ用語が登録されていません。<br /><br />
   <a mat-raised-button color="primary" routerLink="./term/create"
     >新しい用語を登録する</a
   >
-</div>
+</ng-template>

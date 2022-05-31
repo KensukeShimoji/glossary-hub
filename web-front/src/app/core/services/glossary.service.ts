@@ -30,9 +30,9 @@ export class GlossaryService {
   get(id: string): Observable<Glossary> {
     const response: Glossary = {
       id: id,
-      title: '用語集のタイトル',
+      title: 'コンサル用語集',
       description:
-        '用語集の説明サンプル 用語集の説明サンプル 用語集の説明サンプル 用語集の説明サンプル 用語集の説明サンプル 用語集の説明サンプル 用語集の説明サンプル 用語集の説明サンプル 用語集の説明サンプル',
+        'コンサル業界の用語集です。',
       visibility: GlossaryVisibility.PUBLIC,
     };
     return of(response);
