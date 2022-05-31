@@ -5,6 +5,7 @@
     "baseUrl": "./",
     "paths": {
       "#modules/*": ["src/app/modules/*"],
+      "#models/*": ["src/app/core/models/*"],
       "#services/*": ["src/app/core/services/*"]
     },
     "outDir": "./dist/out-tsc",
