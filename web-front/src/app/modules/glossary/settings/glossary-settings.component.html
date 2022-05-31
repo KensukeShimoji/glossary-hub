@@ -1,1 +1,64 @@
-this is settings component
+<h2>設定</h2>
+<form [formGroup]="glossarySettingForm">
+  <mat-form-field appearance="outline">
+    <mat-label>タイトル</mat-label>
+    <input
+      matInput
+      id="title"
+      type="text"
+      placeholder="用語集のタイトルを入力して下さい"
+      formControlName="title"
+      required
+    />
+    <mat-error *ngIf="glossarySettingForm.controls['title'].invalid"
+      >タイトルは必ず入力して下さい</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>説明（任意）</mat-label>
+    <input
+      matInput
+      id="description"
+      type="text"
+      placeholder="用語集の説明を入力して下さい"
+      formControlName="description"
+    />
+  </mat-form-field>
+
+  <mat-divider></mat-divider>
+
+  <mat-radio-group
+    class="visibility"
+    color="primary"
+    formControlName="visibility"
+  >
+    <mat-radio-button value="public">
+      <div class="label">
+        <mat-icon>public</mat-icon>
+        <div class="description">
+          <div>公開</div>
+          <small>誰でも閲覧可能な用語集として作成します。</small>
+        </div>
+      </div>
+    </mat-radio-button>
+    <mat-radio-button value="private">
+      <div class="label">
+        <mat-icon>public_off</mat-icon>
+        <div class="description">
+          <div>非公開</div>
+          <small>限定されたユーザーにのみ閲覧可能な用語集として作成します。</small>
+        </div>
+      </div>
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <div class="button-area">
+    <button mat-raised-button type="button" (click)="cancel()">
+      キャンセル
+    </button>
+    <button mat-raised-button color="primary" type="button" (click)="save()">
+      保存する
+    </button>
+  </div>
+</form>
