@@ -2,7 +2,7 @@ import { DateTime } from 'luxon';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-export interface Glossary {
+export interface GlossaryCardInput {
   title: string;
   description: string;
   author: string;
@@ -18,7 +18,7 @@ export interface Glossary {
 })
 export class GlossaryCardComponent {
   @Input()
-  glossary!: Glossary;
+  glossary!: GlossaryCardInput;
 
   constructor(private readonly router: Router) {}
 

@@ -1,13 +1,13 @@
 import { DateTime } from 'luxon';
 import { Component } from '@angular/core';
-import { Glossary } from './card/glossary-card.component';
+import { GlossaryCardInput } from '#modules/shared/glossary-card/glossary-card.component';
 
 @Component({
   templateUrl: 'top.component.html',
   styleUrls: ['top.component.scss'],
 })
 export class TopComponent {
-  glossaries: Glossary[] = [];
+  glossaries: GlossaryCardInput[] = [];
 
   constructor() {
     Array(30)
