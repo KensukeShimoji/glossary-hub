@@ -1,23 +1,14 @@
 <div class="content-header">
-  <h3 class="title">{{ title }}</h3>
+  <div class="title-area">
+    <h3 class="title">{{ title }}</h3>
+    <a class="settings-button" mat-raised-button routerLink="./settings">設定</a>
+  </div>
   <small class="description">{{ description }}</small>
 </div>
-<mat-tab-group>
-  <mat-tab>
-    <ng-template mat-tab-label=>
-      <mat-icon class="tab-icon">description</mat-icon>
-      用語一覧
-    </ng-template>
-    <div class="no-term-message">
-      まだ用語が登録されていません。<br><br>
-      <a mat-raised-button color="primary" routerLink="./term/create">新しい用語を登録する</a>
-    </div>
-  </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label=>
-      <mat-icon class="tab-icon">settings</mat-icon>
-      設定
-    </ng-template>
-    設定
-  </mat-tab>
-</mat-tab-group>
+
+<div class="no-term-message">
+  まだ用語が登録されていません。<br /><br />
+  <a mat-raised-button color="primary" routerLink="./term/create"
+    >新しい用語を登録する</a
+  >
+</div>

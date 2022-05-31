@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateGlossaryComponent } from './create/create-glossary.component';
 import { GlossaryComponent } from './glossary.component';
+import { GlossarySettingsComponent } from './settings/glossary-settings.component';
 
 const routes: Routes = [
   {
@@ -9,11 +10,15 @@ const routes: Routes = [
     component: CreateGlossaryComponent,
   },
   {
-    path: ':id/term',
+    path: ':glossary-id/settings',
+    component: GlossarySettingsComponent,
+  },
+  {
+    path: ':glossary-id/term',
     loadChildren: () => import('../term/term.module').then((m) => m.TermModule),
   },
   {
-    path: ':id',
+    path: ':glossary-id',
     component: GlossaryComponent,
   },
 ];

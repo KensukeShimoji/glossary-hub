@@ -48,7 +48,7 @@ export class GlossaryComponent implements OnInit {
     this.activatedRoute.paramMap
       .pipe(
         map((params: ParamMap) => {
-          const id = params.get('id');
+          const id = params.get('glossary-id');
           if (id === null) return;
           this.glossaryService.get(id).subscribe((glossary: Glossary) => {
             this._glossary = glossary;

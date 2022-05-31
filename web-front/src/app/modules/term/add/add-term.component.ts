@@ -48,7 +48,7 @@ export class AddTermComponent implements OnInit {
     this.activatedRoute.paramMap
       .pipe(
         map((params: ParamMap) => {
-          this._glossaryId = params.get('id');
+          this._glossaryId = params.get('glossary-id');
         })
       )
       .subscribe();

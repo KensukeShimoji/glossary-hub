@@ -1,9 +1,14 @@
-.content-header {
-  padding-bottom: 12px;
+.title-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .settings-button {
+    height: 36px;
+  }
 }
 
-.tab-icon {
-  margin-right: 8px;
+.content-header {
+  padding-bottom: 12px;
 }
 
 .no-term-message {
