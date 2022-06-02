@@ -1,5 +1,26 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
+
+.index-title {
+  background-color: lightgray;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.index {
+  &.list {
+    gap: 12px;
+  }
+}
+
+.term {
+  &.list {
+    margin-left: 12px;
+    padding: 12px 0px;
+  }
+}
+
+

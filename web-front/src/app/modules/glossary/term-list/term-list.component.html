@@ -1,5 +1,13 @@
-<div class="list">
-  <ng-container *ngFor="let item of list">
-    <gh-term-list-item [item]="item"></gh-term-list-item>
-  </ng-container>
+<div class="index list">
+  <div class="index-group" *ngFor="let index of hiraganaIndex">
+    <div class="index-title">{{ index }}行</div>
+    <div class="term list">
+      <ng-container *ngFor="let item of findByIndex(index);">
+        <gh-term-list-item [item]="item"></gh-term-list-item>
+      </ng-container>
+      <div *ngIf="findByIndex(index).length === 0">
+        用語が登録されていません。
+      </div>
+    </div>
+  </div>
 </div>

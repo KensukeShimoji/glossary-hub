@@ -1,4 +1,4 @@
-import { TermList } from '#services/term.service';
+import { HiraganaIndexList, TermList } from '#services/term.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -10,4 +10,11 @@ export class TermListComponent {
   @Input()
   list: TermList = [];
 
+  get hiraganaIndex() {
+    return HiraganaIndexList;
+  } 
+
+  findByIndex(index: string): TermList {
+    return this.list.filter((item) => item.index === index);
+  }
 }

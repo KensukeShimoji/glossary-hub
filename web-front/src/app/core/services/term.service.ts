@@ -9,8 +9,12 @@ export interface AddTermInput {
   description: string;
 }
 
+export const HiraganaIndexList = ['あ', 'か', 'さ', 'た', 'な', 'は', 'ま', 'ら', 'や', 'わ'] as const;
+
+export type HiraganaIndex = typeof HiraganaIndexList[number];
 export interface TermListItem {
   id: string;
+  index: HiraganaIndex;
   name: string;
   yomi: string;
 }
@@ -27,13 +31,13 @@ export class TermService {
 
   list(glossaryId: string): Observable<TermList> {
     const list: TermList = [
-      { id: '1', name: 'ABeam Consulting', yomi: 'あびーむ' },
-      { id: '1', name: 'アベる', yomi: 'あべる' },
-      { id: '2', name: 'BCG', yomi: 'びーしーじー' },
-      { id: '2', name: 'BCC', yomi: 'びーしーしー' },
-      { id: '3', name: 'Boston Consulting Group', yomi: 'ぼすとん こんさるてぃんぐ ぐるーぷ' },
-      { id: '4', name: 'NRI', yomi: 'えぬあーあるあい' },
-      { id: '5', name: 'PwC', yomi: 'ぴーだぶりゅーしー' },
+      { id: '1', index: 'あ', name: 'ABeam Consulting', yomi: 'あびーむ' },
+      { id: '2', index: 'あ', name: 'アベる', yomi: 'あべる' },
+      { id: '3', index: 'あ', name: 'NRI', yomi: 'えぬあーあるあい' },
+      { id: '4', index: 'は', name: 'BCG', yomi: 'びーしーじー' },
+      { id: '5', index: 'は', name: 'BCC', yomi: 'びーしーしー' },
+      { id: '6', index: 'は', name: 'PwC', yomi: 'ぴーだぶりゅーしー' },
+      { id: '7', index: 'は', name: 'Boston Consulting Group', yomi: 'ぼすとん こんさるてぃんぐ ぐるーぷ' },
     ];
     return of(list);
   }

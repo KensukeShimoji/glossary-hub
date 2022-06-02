@@ -1,20 +1,26 @@
-<div class="content-header">
-  <div class="title-area">
-    <h3 class="title">{{ title }}</h3>
-    <a class="settings-button" mat-raised-button routerLink="./settings"
-      >設定</a
-    >
+<div class="container">
+  <div class="content-header">
+    <div class="title-area">
+      <h3 class="title">{{ title }}</h3>
+      <a class="settings-button" mat-icon-button routerLink="./settings">
+        <mat-icon>settings</mat-icon>
+      </a>
+    </div>
+    <small class="description">{{ description }}</small>
   </div>
-  <small class="description">{{ description }}</small>
+  <div class="term-list">
+    <gh-term-list
+      *ngIf="termList.length > 0; else noTermMessage"
+      [list]="termList"
+    ></gh-term-list>
+    <ng-template #noTermMessage class="no-term-message">
+      まだ用語が登録されていません。<br /><br />
+    </ng-template>
+  </div>
+  <div class="add-new-term-button-container">
+    <a class="add-new-term-button" mat-raised-button color="primary" routerLink="./term/create">
+      <mat-icon>add_circle</mat-icon>
+      新しい用語を登録する
+    </a>
+  </div>
 </div>
-
-<gh-term-list
-  *ngIf="termList.length > 0; else noTermMessage"
-  [list]="termList"
-></gh-term-list>
-<ng-template #noTermMessage class="no-term-message">
-  まだ用語が登録されていません。<br /><br />
-  <a mat-raised-button color="primary" routerLink="./term/create"
-    >新しい用語を登録する</a
-  >
-</ng-template>

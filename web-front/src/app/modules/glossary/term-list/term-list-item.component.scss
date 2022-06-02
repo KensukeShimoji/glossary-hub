@@ -1,0 +1,12 @@
+.term {
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  gap: 12px;
+  line-height: 16px;
+  .yomi {
+    color: gray;
+  }
+}
