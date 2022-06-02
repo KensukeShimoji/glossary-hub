@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateGlossaryComponent } from './create/create-glossary.component';
 import { GlossaryComponent } from './glossary.component';
-import { GlossarySettingsComponent } from './glossary-settings/glossary-settings.component';
+import { GlossarySettingsComponent } from '../glossary-settings/glossary-settings.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: ':glossary-id/settings',
-    component: GlossarySettingsComponent,
+    loadChildren: () => import('../glossary-settings/glossary-settings.module').then((m) => m.GlossaryModule),
   },
   {
     path: ':glossary-id/term',
