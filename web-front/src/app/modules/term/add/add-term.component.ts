@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { AddTermInput, TermService } from 'src/app/core/services/term.service';
+import { TermCategoryList, TermCategoryService } from '#services/term-category.service';
 
 export interface Tag {
   name: string;
@@ -29,11 +30,18 @@ export class AddTermComponent implements OnInit {
     return this._tags;
   }
 
+  private _categoryList: TermCategoryList = [];
+
+  get categories() {
+    return this._categoryList;
+  }
+
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router,
     readonly fb: FormBuilder,
-    private readonly termService: TermService
+    private readonly termService: TermService,
+    private readonly termCategoryService: TermCategoryService
   ) {
     this.addTermForm = fb.group({
       name: ['', Validators.required],
@@ -49,9 +57,16 @@ export class AddTermComponent implements OnInit {
       .pipe(
         map((params: ParamMap) => {
           this._glossaryId = params.get('glossary-id');
+          if (this._glossaryId !== null) {
+            this._loadCategory(this._glossaryId);
+          }
         })
       )
       .subscribe();
+  }
+
+  _loadCategory(glossaryId: string): void {
+    this.termCategoryService.list(glossaryId).subscribe((categoryList) => (this._categoryList = categoryList));
   }
 
   addTag(event: MatChipInputEvent): void {

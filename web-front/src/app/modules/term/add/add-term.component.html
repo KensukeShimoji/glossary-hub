@@ -38,6 +38,16 @@
   </mat-form-field>
 
   <mat-form-field appearance="outline">
+    <mat-label>分類</mat-label>
+    <mat-select formControlName="category">
+      <mat-option>分類なし</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category.id"
+        >{{ category.name }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
     <mat-label>タグ</mat-label>
     <mat-chip-list #chipList>
       <mat-chip *ngFor="let tag of tags" (removed)="removeTag(tag)">
