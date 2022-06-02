@@ -25,6 +25,10 @@ const modules = [
   MatTabsModule,
 ];
 
+/**
+ * Angular Material 一括Import用
+ * @ignore
+ */
 @NgModule({
   imports: [...modules],
   exports: [...modules],

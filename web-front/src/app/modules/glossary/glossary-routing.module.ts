@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateGlossaryComponent } from './create/create-glossary.component';
 import { GlossaryComponent } from './glossary.component';
-import { GlossarySettingsComponent } from '../glossary-settings/glossary-settings.component';
 
 const routes: Routes = [
   {
