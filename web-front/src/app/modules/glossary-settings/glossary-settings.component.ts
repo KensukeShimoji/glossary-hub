@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { GlossaryService, SaveGlossaryInput } from '#services/glossary.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { concatMap, map } from 'rxjs';
 import { Glossary } from '#models/glossary.model';
@@ -13,12 +13,12 @@ import { Glossary } from '#models/glossary.model';
 export class GlossarySettingsComponent implements OnInit {
   private _glossary!: Glossary;
 
-  readonly glossarySettingForm: FormGroup;
+  readonly glossarySettingForm: UntypedFormGroup;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router,
-    readonly fb: FormBuilder,
+    readonly fb: UntypedFormBuilder,
     private readonly glossaryService: GlossaryService,
     private readonly location: Location
   ) {

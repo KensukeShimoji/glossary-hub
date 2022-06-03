@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreateGlossaryInput, GlossaryService } from 'src/app/core/services/glossary.service';
 
@@ -9,11 +9,11 @@ import { CreateGlossaryInput, GlossaryService } from 'src/app/core/services/glos
   styleUrls: ['create-glossary.component.scss'],
 })
 export class CreateGlossaryComponent {
-  readonly createGlossaryForm: FormGroup;
+  readonly createGlossaryForm: UntypedFormGroup;
 
   constructor(
     private readonly router: Router,
-    readonly fb: FormBuilder,
+    readonly fb: UntypedFormBuilder,
     private readonly glossaryService: GlossaryService,
     private readonly location: Location
   ) {

@@ -1,6 +1,6 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { MatChipInputEvent } from '@angular/material/chips';
@@ -18,7 +18,7 @@ export interface Tag {
 export class AddTermComponent implements OnInit {
   private _glossaryId: string | null = '';
 
-  readonly addTermForm: FormGroup;
+  readonly addTermForm: UntypedFormGroup;
 
   addOnBlur = true;
 
@@ -39,7 +39,7 @@ export class AddTermComponent implements OnInit {
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly router: Router,
-    readonly fb: FormBuilder,
+    readonly fb: UntypedFormBuilder,
     private readonly termService: TermService,
     private readonly termCategoryService: TermCategoryService
   ) {
