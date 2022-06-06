@@ -5,6 +5,7 @@ import { Glossary, GlossaryVisibility } from '../models/glossary.model';
 export interface CreateGlossaryInput {
   title: string;
   description: string;
+  visibility: GlossaryVisibility
 }
 
 export interface SaveGlossaryInput {
